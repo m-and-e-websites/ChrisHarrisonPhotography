@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Christopher Harrison Photography</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0b0b0b;
+      color: #eaeaea;
+    }
+
+    header {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #b5b5b5;
+      font-size: 1rem;
+    }
+
+    .gallery {
+      padding: 2rem 4%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+      filter: brightness(88%);
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.02);
+      filter: brightness(100%);
+    }
+
+    .about {
+      max-width: 900px;
+      margin: 5rem auto 3rem;
+      padding: 0 2rem;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about p {
+      color: #b5b5b5;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .contact {
+      text-align: center;
+      margin: 4rem 0;
+    }
+
+    .contact a {
+      color: #eaeaea;
+      text-decoration: none;
+      border-bottom: 1px solid #eaeaea;
+      padding-bottom: 4px;
+      transition: opacity 0.3s;
+    }
+
+    .contact a:hover {
+      opacity: 0.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Christopher Harrison Photography</h1>
+    <p>Nature • Heritage • Landscapes</p>
+  </header>
+
+  <main class="gallery">
+    <img src="assets/image1.jpg" alt="Photography work">
+    <img src="assets/image2.jpg" alt="Photography work">
+    <img src="assets/image3.jpg" alt="Photography work">
+    <img src="assets/image4.jpg" alt="Photography work">
+    <img src="assets/image5.jpg" alt="Photography work">
+    <img src="assets/image6.jpg" alt="Photography work">
+  </main>
+
+  <section class="about">
+    <h2>About</h2>
+    <p>
+      Christopher Harrison is a UK-based photographer specialising in natural
+      landscapes and historic architecture. His work focuses on atmosphere,
+      light, and the quiet presence of heritage locations such as manors and castles.
+    </p>
+  </section>
+
+  <section class="contact">
+    <a href="https://www.facebook.com/share/1F4ffwg7Zp/?mibextid=wwXIfr" target="_blank">
+      View on Facebook
+    </a>
+  </section>
+
+  <footer>
+    © 2026 Christopher Harrison Photography
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Expanded view">
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
